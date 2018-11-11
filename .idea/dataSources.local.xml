@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="proiectruby@localhost" uuid="a904c1b3-ec83-4c37-a7c1-cb8a690bbd2e">
-      <database-info product="MySQL" version="5.5.5-10.1.31-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
-        <extra-name-characters>#@</extra-name-characters>
-        <identifier-quote-string>`</identifier-quote-string>
+    <data-source name="miniproiect@localhost" uuid="b8dd1282-2bb8-4634-978c-00ecb23016f4">
+      <database-info product="PostgreSQL" version="11.1" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
-      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>root</user-name>
-      <introspection-schemas>*:proiectruby</introspection-schemas>
+      <user-name>postgres</user-name>
+      <introspection-schemas>miniproiect:public</introspection-schemas>
+    </data-source>
+    <data-source name="dd6l7ok5ete1ft@ec2-23-23-101-25.compute-1.amazonaws.com" uuid="0f81e092-640a-430a-84f5-da34e90edbeb">
+      <database-info product="PostgreSQL" version="10.5 (Ubuntu 10.5-1.pgdg14.04+1)" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>hzbykshwxdkbpy</user-name>
+      <introspection-schemas>dd6l7ok5ete1ft:public</introspection-schemas>
     </data-source>
   </component>
 </project>
