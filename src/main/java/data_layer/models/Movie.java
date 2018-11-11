@@ -1,5 +1,7 @@
 package data_layer.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,12 +12,17 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+    @JsonProperty("title")
     private String title;
+
+    @JsonProperty("rating")
     private String rating;
+
+    @JsonProperty("releaseDate")
     @Column(name = "released_date")
     private String releaseDate;
 
-    
+
     protected Movie() {
     }
 

@@ -32,18 +32,8 @@ public class MovieService {
           //  System.out.println("Nu exista id-ul specificat!");
     }
 
-    public void updateMovieTitleWithId(Long id, String title) {
-       // if (movieRepository.getOne(id.intValue()) != null)
-            movieRepository.setMovieTitleById(title, id);
-        //else
-           // System.out.println("Nu exista id-ul specificat!");
-    }
-
-    public void updateMovieRatingWithId(Long id, String rating) {
-        //if (movieRepository.getOne(id.intValue()) != null)
-            movieRepository.setMovieRatingById(rating, id);
-       // else
-           // System.out.println("Nu exista id-ul specificat!");
+    public void updateMovie(Movie m){
+        movieRepository.save(m);
     }
 
 }

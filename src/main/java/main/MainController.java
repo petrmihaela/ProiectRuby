@@ -1,15 +1,14 @@
 package main;
 
+import data_layer.dto.MovieDeleteDTO;
 import data_layer.models.Movie;
 import data_layer.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
@@ -44,31 +43,28 @@ public class MainController {
 
     @RequestMapping(value = "/movies/addMovie", method = RequestMethod.POST)
     @ResponseBody
-    public void set(@RequestParam("title") String title, @RequestParam("rating") String rating, @RequestParam("year") String year) {
-
-        Movie m = new Movie(title, rating, year);
-        movieService.saveMovie(m);
+    public void set(@RequestBody Movie movie) {
+        System.out.println(movie.toString());
+        movieService.saveMovie(movie);
     }
 
     @RequestMapping(value = "/movies/deleteMovie", method = RequestMethod.DELETE)
     @ResponseBody
     @Transactional
-    public void deleteMovieWithId(@RequestParam("id") long id) {
-        movieService.deleteMovieById(id);
+    public void deleteMovieWithId(@RequestBody MovieDeleteDTO movieDTO) {
+        movieService.deleteMovieById(movieDTO.getId());
     }
 
-    @RequestMapping(value = "/movies/updateMovieTitle", method = RequestMethod.PUT)
+    @RequestMapping(value = "/movies/updateMovie", method = RequestMethod.PUT)
     @ResponseBody
     @Transactional
-    public void updateMovieTitleWithId(@RequestParam("id") long id,@RequestParam("title") String title) {
-        movieService.updateMovieTitleWithId(id,title);
+    public void updateMovieTitleWithId(@RequestBody Movie movie) {
+        movieService.updateMovie(movie);
     }
 
-    @RequestMapping(value = "/movies/updateMovieRating", method = RequestMethod.PUT)
+    @RequestMapping(value = "/")
     @ResponseBody
-    @Transactional
-    public void updateMovieRatingWithId(@RequestParam("id") long id,@RequestParam("rating") String rating) {
-        movieService.updateMovieRatingWithId(id,rating);
+    public String index(){
+        return "Felicitari, mi-ai descoperit aplicatia!";
     }
-
 }
