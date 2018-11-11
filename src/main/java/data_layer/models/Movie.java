@@ -15,6 +15,7 @@ public class Movie {
     @Column(name = "released_date")
     private String releaseDate;
 
+    
     protected Movie() {
     }
 
