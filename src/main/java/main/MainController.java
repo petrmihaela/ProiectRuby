@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -53,20 +54,20 @@ public class MainController {
     public void deleteMovieWithId(
             //@RequestBody MovieDeleteDTO movieDTO
             @RequestBody long id
-            ) {
+    ) {
         movieService.deleteMovieById(id);
     }
 
     @RequestMapping(value = "/movies/updateMovie", method = RequestMethod.PUT)
     @ResponseBody
     @Transactional
-    public void updateMovieTitleWithId(@RequestBody long id,@RequestBody String title) {
-        movieService.updateMovie(id,title);
+    public void updateMovieTitleWithId(@RequestBody String title, long id) {
+       movieService.updateMovie(title,id);
     }
 
     @RequestMapping(value = "/")
     @ResponseBody
-    public String index(){
+    public String index() {
         return "Felicitari, mi-ai descoperit aplicatia!";
     }
 }
