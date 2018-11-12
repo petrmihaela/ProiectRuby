@@ -58,11 +58,9 @@ public class MainController {
         movieService.deleteMovieById(id);
     }
 
-    @RequestMapping(value = "/movies/updateMovie", method = RequestMethod.PUT)
-    @ResponseBody
-    @Transactional
-    public void updateMovieTitleWithId(@RequestBody String title, long id) {
-       movieService.updateMovie(title,id);
+    @RequestMapping(value = "/movies/updateMovie", method = RequestMethod.POST)
+    public void updateCar(@RequestBody Movie movie) {
+         movieService.updateMovie(movie);
     }
 
     @RequestMapping(value = "/")

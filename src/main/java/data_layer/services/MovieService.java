@@ -31,14 +31,8 @@ public class MovieService {
         movieRepository.deleteById(id);
     }
 
-    public void updateMovie(String title,long id) {
-        Optional<Movie> movieOptional = movieRepository.findById((int)id);
-
-        if (movieOptional.isPresent()) {
-            Movie m=movieOptional.get();
-            m.setTitle(title);
-            movieRepository.save(m);
-        }
+    public void updateMovie(Movie m) {
+        movieRepository.save(m);
     }
 
 
