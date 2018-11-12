@@ -1,6 +1,6 @@
 package main;
 
-import data_layer.dto.MovieDeleteDTO;
+import data_layer.dto.MovieUpdateDTO;
 import data_layer.models.Movie;
 import data_layer.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 
 @RestController
@@ -52,14 +51,16 @@ public class MainController {
     @ResponseBody
     @Transactional
     public void deleteMovieWithId(
-            //@RequestBody MovieDeleteDTO movieDTO
+            //@RequestBody MovieUpdateDTO movieDTO
             @RequestBody long id
     ) {
         movieService.deleteMovieById(id);
     }
 
-    @RequestMapping(value = "/movies/updateMovie", method = RequestMethod.POST)
-    public void updateCar(@RequestBody Movie movie) {
+    @RequestMapping(value = "/movies/updateMovie", method = RequestMethod.PUT)
+    @ResponseBody
+    @Transactional
+    public void updateMovie(@RequestBody MovieUpdateDTO movie) {
          movieService.updateMovie(movie);
     }
 

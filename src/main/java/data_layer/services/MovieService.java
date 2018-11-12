@@ -1,5 +1,6 @@
 package data_layer.services;
 
+import data_layer.dto.MovieUpdateDTO;
 import data_layer.models.Movie;
 import data_layer.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,8 @@ public class MovieService {
         movieRepository.deleteById(id);
     }
 
-    public void updateMovie(Movie m) {
-        movieRepository.save(m);
+    public void updateMovie(MovieUpdateDTO m) {
+        movieRepository.setMovieTitleById(m.getTitle(),m.getId());
     }
 
 
