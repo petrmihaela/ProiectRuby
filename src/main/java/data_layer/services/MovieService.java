@@ -26,14 +26,12 @@ public class MovieService {
     }
 
     public void deleteMovieById(Long id) {
-       // if (movieRepository.getOne(id.intValue()) != null)
+
             movieRepository.deleteById(id);
-        //else
-          //  System.out.println("Nu exista id-ul specificat!");
     }
 
-    public void updateMovie(Movie m){
-        movieRepository.save(m);
+    public void updateMovie(long id,String title){
+        movieRepository.setMovieTitleById(title,id);
     }
 
 }

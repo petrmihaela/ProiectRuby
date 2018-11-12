@@ -13,8 +13,6 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
     Movie findByTitleEquals(String title);
 
-    List<Movie> findAllByIdGreaterThanEqual(int id);
-
     void deleteById(Long id);
 
     @Modifying
