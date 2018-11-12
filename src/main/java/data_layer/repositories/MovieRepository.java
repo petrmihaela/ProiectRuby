@@ -20,7 +20,4 @@ public interface MovieRepository extends JpaRepository<Movie, Integer> {
     @Query("update Movie u set u.title = ?1 where u.id = ?2")
     void setMovieTitleById(String title, Long id);
 
-    @Modifying
-    @Query("Update Movie t SET t.title=:title WHERE t.id=:id")
-    void updateTitle(@Param("id") Long id, @Param("title") String title);
 }

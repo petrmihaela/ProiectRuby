@@ -33,7 +33,7 @@ public class MovieService {
     }
 
     public void updateMovie(MovieUpdateDTO m) {
-        movieRepository.setMovieTitleById(m.getTitle(),m.getId());
+        movieRepository.setMovieTitleById(m.getTitle(), m.getId());
     }
 
 

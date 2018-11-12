@@ -19,13 +19,10 @@ public class MainController {
 
     @RequestMapping("/movies")
     @ResponseBody
-    public List<String> getAllMovies() {
+    public List<Movie> getAllMovies() {
 
-        List<String> myList = new ArrayList<>();
         List<Movie> movies = movieService.getAllMovies();
-        for (Movie m : movies)
-            myList.add(m.toString());
-        return myList;
+        return movies;
 
     }
 
@@ -33,9 +30,7 @@ public class MainController {
     @ResponseBody
     public Movie getMovieWithTitle(@RequestParam(name = "title") String t) {
 
-
         Movie m = movieService.findMovieWithTitle(t);
-
         return m;
 
     }
@@ -43,17 +38,14 @@ public class MainController {
     @RequestMapping(value = "/movies/addMovie", method = RequestMethod.POST)
     @ResponseBody
     public void set(@RequestBody Movie movie) {
-        System.out.println(movie.toString());
+
         movieService.saveMovie(movie);
     }
 
     @RequestMapping(value = "/movies/deleteMovie", method = RequestMethod.DELETE)
     @ResponseBody
     @Transactional
-    public void deleteMovieWithId(
-            //@RequestBody MovieUpdateDTO movieDTO
-            @RequestBody long id
-    ) {
+    public void deleteMovieWithId(@RequestBody long id) {
         movieService.deleteMovieById(id);
     }
 
@@ -61,7 +53,7 @@ public class MainController {
     @ResponseBody
     @Transactional
     public void updateMovie(@RequestBody MovieUpdateDTO movie) {
-         movieService.updateMovie(movie);
+        movieService.updateMovie(movie);
     }
 
     @RequestMapping(value = "/")
