@@ -60,7 +60,7 @@ public class MainController {
     @RequestMapping(value = "/movies/updateMovie", method = RequestMethod.PUT)
     @ResponseBody
     @Transactional
-    public void updateMovieTitleWithId(@RequestBody long id,String title) {
+    public void updateMovieTitleWithId(@RequestBody long id,@RequestBody String title) {
         movieService.updateMovie(id,title);
     }
 
