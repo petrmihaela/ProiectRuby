@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, Integer> {
 
-    List<Movie> findAllByTitle(String title);
+    Movie findByTitleEquals(String title);
 
     List<Movie> findAllByIdGreaterThanEqual(int id);
 

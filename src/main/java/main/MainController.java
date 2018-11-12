@@ -31,13 +31,12 @@ public class MainController {
 
     @RequestMapping(value = "/movies/withTitle", method = RequestMethod.GET)
     @ResponseBody
-    public List<String> getMoviesWithTitle(@RequestParam(name = "title") String t) {
+    public Movie getMovieWithTitle(@RequestParam(name = "title") String t) {
 
-        List<String> myList = new ArrayList<>();
-        List<Movie> movies = movieService.findMoviesWithTitle(t);
-        for (Movie m : movies)
-            myList.add(m.toString());
-        return myList;
+
+        Movie m = movieService.findMovieWithTitle(t);
+
+        return m;
 
     }
 

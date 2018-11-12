@@ -13,8 +13,8 @@ public class MovieService {
     @Autowired
     MovieRepository movieRepository;
 
-    public List<Movie> findMoviesWithTitle(String title) {
-        return movieRepository.findAllByTitle(title);
+    public Movie findMovieWithTitle(String title) {
+        return movieRepository.findByTitleEquals(title);
     }
 
     public List<Movie> getAllMovies() {
